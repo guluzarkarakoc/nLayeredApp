@@ -1,4 +1,5 @@
 using Business;
+using Business.DTOs.Profiles;
 using DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);

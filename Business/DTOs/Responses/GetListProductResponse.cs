@@ -1,16 +1,20 @@
-﻿using Core.Entities;
+﻿using Core.DataAccess.Paging;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concrete
+namespace Business.DTOs.Responses
 {
-    public class Product:Entity<Guid>
+    public class GetListProductResponse: BasePageableModel
     {
-      
+        public IList<Product> Items { get; set; }
+    }
+
+    public class ListProductDto
+    {
         public string ProductName { get; set; }
         public decimal UnitPrice { get; set; }
         public short UnitsInStock { get; set; }

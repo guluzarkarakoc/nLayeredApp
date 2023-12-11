@@ -1,4 +1,6 @@
-﻿using Core.DataAccess.Paging;
+﻿using Business.DTOs.Request;
+using Business.DTOs.Responses;
+using Core.DataAccess.Paging;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,8 @@ namespace Business.Abstract
 {
     public interface IProductService
     {
-         Task<IPaginate<Product>> GetListAsync();
-        Task Add(Product product);
+         Task<GetListProductResponse> GetListAsync( );
+        Task<CreatedProductResponse> Add(CreateProductRequest createProductRequest);
     }
+    //response request pattern
 }

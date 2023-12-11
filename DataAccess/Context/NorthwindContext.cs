@@ -13,14 +13,21 @@ namespace DataAccess.Context
   
         public class NorthwindContext : DbContext
         {
-            protected IConfiguration Configuration { get; set; }
-            public DbSet<Product> Products { get; set; }
 
-            public NorthwindContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
-           { Configuration = configuration; Database.EnsureCreated(); }
+           protected IConfiguration Configuration { get; set; }
 
-            protected override void OnModelCreating(ModelBuilder modelBuilder) 
-           { modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly()); }
+           public DbSet<Product> Products { get; set; }
+
+          public NorthwindContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
+          {
+            Configuration = configuration;
+            Database.EnsureCreated();
+          }
+
+          protected override void OnModelCreating(ModelBuilder modelBuilder)
+          {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+           }
         }
     
 }
